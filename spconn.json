@@ -1,0 +1,39 @@
+{
+  "administratorsGroup": null,
+  "authorization": {
+    "parameters": {
+      "authenticationType": "spnKey",
+      "serviceprincipalid": "1f98a4f7-5229-4374-b489-3d2d31cde869",
+      "tenantid": "bb9d7afc-4ddc-42dd-8518-26777626a8df",
+      "serviceprincipalkey": "JfC7Q~acTE.ozs4XtzJK28m3OmjBsYrO3Sf6f"
+    },
+    "scheme": "ServicePrincipal"
+  },
+  "data": {
+    "creationMode": "Manual",
+    "environment": "AzureCloud",
+    "scopeLevel": "Subscription",
+    "subscriptionId": "6b099473-a929-4cc7-9f5f-3d238112f0a3",
+    "subscriptionName": "Azure subscription 1"
+  },
+  "description": "Description - CloudSkills Sub",
+  "groupScopeId": null,
+  "isReady": true,
+  "isShared": false,
+  "name": "Service Connection Name - sub",
+  "operationStatus": null,
+  "owner": "Library",
+  "readersGroup": null,
+  "serviceEndpointProjectReferences": [
+    {
+      "description": "Description - CloudSkills Sub",
+      "name": "Service Connection Name - demo",
+      "projectReference": {
+        "id": "0b859fdf-0134-4098-9f55-5af43af78764",
+        "name": "DEMO-SC-LA"
+      }
+    }
+  ],
+  "type": "azurerm",
+  "url": "https://management.azure.com/"
+}
