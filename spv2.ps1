@@ -4,10 +4,10 @@ Param(
     [string]$PersonalToken = "riu4zubftxieoc5rasbwtl5mwcsbouhalzowmpxlemwzvobmj6ja",
     
     [Parameter(Mandatory = $False)]
-    [string]$Organisation = "adoanalytics",
+    [string]$Organisation = "sgdemo0376",
     
     [Parameter(Mandatory = $False)]
-    [string]$ProjectName = "test adoanalytics",
+    [string]$ProjectName = "demo-SL-LA",
  
     [Parameter(Mandatory = $False, ParameterSetName = 'Subscription')]
     [string]$SubscriptionId = "6b099473-a929-4cc7-9f5f-3d238112f0a3",
@@ -40,7 +40,7 @@ Catch {
 }
 $ProjectID = ($ProjectNameproperties | Where-Object { $_.Name -eq $ProjectName }).id
 Write-Verbose "Collected ID: $ProjectID"
-$ConnectionName = "Connection To $ProjectName"
+$ConnectionName = "devopsapp"
 
 
     $data = @{
