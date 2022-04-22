@@ -8,7 +8,7 @@ if(Test-Path $oFile){
     Remove-Item $oFile -Force
 }
  
-"SUBSCRIPTION_NAME,SUBSCRIPTION_ID,RESOURCE_GROUP_NAME," | Out-File $oFile -Append -Encoding ascii
+"SUBSCRIPTION_NAME,SUBSCRIPTION_ID,RESOURCE_GROUP_NAME,LB_NAME,FIP_NAME,PIP_AllocationMethod,Backendpool_Addresspool_Name,LB_Rules_Name,LB_NAT_PROTOCOL,SKU,PROB_NAME,PROB_PORT,PROB_PROTOCAL,NSG" | Out-File $oFile -Append -Encoding ascii
  
 $subs = Get-AzSubscription -SubscriptionName $subsc_name 
     $subscriptionId = $subs.Id
@@ -37,7 +37,7 @@ $subs = Get-AzSubscription -SubscriptionName $subsc_name
 
             $NSG = $_.Name
             $AttachedNIC = $_.Subnets
-       "$subscriptionName,$subscriptionId,$resourceGroupName,$lbName,$FrontendIpConfigurationsName,$PrivateIpAllocationMethod,$bpAddresspoolsname,$lbRuleName,$lbnatprotocol,$lbnatfip,$lbnatbip,$sku,$probsname,$probport,$probprotocol,$NSG" | Out-File $oFile -Append -Encoding ascii
+       "$subscriptionName,$subscriptionId,$resourceGroupName,$lbName,$FrontendIpConfigurationsName,$PrivateIpAllocationMethod,$bpAddresspoolsname,$lbRuleName,$lbnatprotocol,$sku,$probsname,$probport,$probprotocol,$NSG" | Out-File $oFile -Append -Encoding ascii
 
        }
        
@@ -45,3 +45,5 @@ $subs = Get-AzSubscription -SubscriptionName $subsc_name
        
        
         }
+        
+    Write-Host "script executed successfully"
