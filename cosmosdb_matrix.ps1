@@ -25,8 +25,8 @@ if(Test-Path $oFile){
           $cdbName = $_.Name
           $cdbid = $_.Id
           $name = (Get-AzResource -ResourceId $cdbid).Name
-          $metricAvg = Get-AzMetric -ResourceId $cdbid -MetricName "NormalizedRUConsumption" -AggregationType Average -WarningAction Ignore -MetricNamespace CosmosDBstandardmetrics -StartTime (Get-Date).adddays(-30) -EndTime (Get-Date)
-          $metricMax = Get-AzMetric -ResourceId $cdbid -MetricName "NormalizedRUConsumption" -AggregationType Maximum -WarningAction Ignore -MetricNamespace CosmosDBstandardmetrics -StartTime (Get-Date).adddays(-30) -EndTime (Get-Date)
+          $metricAvg = (Get-AzMetric -ResourceId $cdbid -MetricName "NormalizedRUConsumption" -AggregationType Average -WarningAction Ignore -MetricNamespace CosmosDBstandardmetrics -StartTime (Get-Date).adddays(-30) -EndTime (Get-Date)).Data
+          $metricMax = (Get-AzMetric -ResourceId $cdbid -MetricName "NormalizedRUConsumption" -AggregationType Maximum -WarningAction Ignore -MetricNamespace CosmosDBstandardmetrics -StartTime (Get-Date).adddays(-30) -EndTime (Get-Date)).Data
       
         
     "$TenentID,$subscriptionName,$subscriptionId,$resourceGroupName,$cdbName,$metricAvg,$metricMax" | Out-File $oFile -Append -Encoding ascii
@@ -35,7 +35,5 @@ if(Test-Path $oFile){
 }
 Write-Host "script executed successfully" -ForegroundColor Green
 
-
-Get-AzConsumptionUsageDetail -BillingPeriodName
 
 
